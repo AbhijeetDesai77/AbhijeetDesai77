@@ -1,0 +1,28 @@
+package framework;
+import java.io.IOException;
+import org.apache.poi.EncryptedDocumentException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import configurationPack.ConfiMeth;
+
+public class TestCasesForMatrimony {
+
+	public static void main(String[] args) throws EncryptedDocumentException, IOException {
+		
+		System.setProperty("webdriver.chrome.driver", ConfiMeth.ChromeDriverpath);
+		WebDriver driver =new ChromeDriver();
+		driver.get("https://www.bharatmatrimony.com/campaign/matrimony.php?themeid=22&gclid=CjwKCAjwiuuRBhBvEiwAFXKaNPf6_6kS94sA7hBOZPjeRCdAxOBnsegYPc3uKFqLqEV4ttyv8GDsoBoCtncQAvD_BwE#");
+		
+		POMClass pom = new POMClass(driver);
+		UtilityForMatrimony utl = new UtilityForMatrimony();	
+		
+		pom.select();
+		pom.myself();
+		pom.Male();
+		pom.myname(utl.excellsheet(1,0));
+		pom.mobile(utl.excellsheet(1,2));
+		pom.regi();	
+	
+	}
+	
+}
